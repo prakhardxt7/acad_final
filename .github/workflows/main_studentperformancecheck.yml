@@ -34,7 +34,7 @@ jobs:
 
     - name: Push Docker image to ACR
       run: |
-        docker push $ACR_NAME.azurecr.io/fastapi-app:latest
+        docker push $ACR_NAME.azurecr.io/mlopprj_final:latest
 
     - name: Create or update Azure Web App with the ACR image
       run: |
