@@ -30,7 +30,7 @@ jobs:
 
     - name: Build and tag Docker image
       run: |
-        docker build -t $ACR_NAME.azurecr.io/fastapi-app:latest .
+        docker build -t $ACR_NAME.azurecr.io/mlopprj_final:latest .
 
     - name: Push Docker image to ACR
       run: |
@@ -41,10 +41,10 @@ jobs:
         az webapp create --name $AZURE_WEBAPP_NAME \
                          --resource-group $AZURE_RESOURCE_GROUP \
                          --plan $AZURE_PLAN \
-                         --deployment-container-image-name $ACR_NAME.azurecr.io/fastapi-app:latest || \
+                         --deployment-container-image-name $ACR_NAME.azurecr.io/mlopprj_final:latest || \
         az webapp config container set --name $AZURE_WEBAPP_NAME \
                                        --resource-group $AZURE_RESOURCE_GROUP \
-                                       --docker-custom-image-name $ACR_NAME.azurecr.io/fastapi-app:latest \
+                                       --docker-custom-image-name $ACR_NAME.azurecr.io/mlopprj_final:latest \
                                        --docker-registry-server-url https://$ACR_NAME.azurecr.io
 
     - name: Restart Azure Web App
